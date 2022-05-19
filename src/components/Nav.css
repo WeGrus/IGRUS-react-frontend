@@ -1,0 +1,119 @@
+.nav{
+    position: sticky;
+    width: 100%;
+    height: 44px;
+    padding: 0 0.5rem;
+    box-shadow: 3px 3px 10px 1px rgba(1, 1, 1, 0.25);
+}
+
+.nav-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-size: 0.7rem;
+}
+
+.nav-links{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.nav-btn{
+    border: none;
+    background-color: #1f908a;
+    color: white;
+    border-radius: 50px;
+}
+
+.nav-icon,.nav-btn,.nav-links-btn{
+    width: 50px;
+}
+
+.nav-links-btn{
+    cursor: pointer;
+}
+
+.link-box{
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    display: none;
+    min-width: 160px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    position: fixed;
+    top: 44px;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.block{
+    display: block!important;
+}
+
+.box-item{
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    text-align: center;
+}
+
+@media (min-width: 1024px){
+    .nav{
+        height: 3.75em;
+        padding: 0 0;
+    }
+    .nav-item{
+        max-width: 952px;
+    }
+    .nav-icon{
+        width: 7.6rem;
+        height: 2.7rem;
+    }
+
+    .nav-links{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        width: 15.15rem;
+    }
+
+    .nav-links-btn{
+        display: none;
+    }
+
+    .nav-links-item{
+        display: block;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight:bold;
+        line-height: 0.35em;
+        height: 0.95em;
+    }
+
+    .nav-links-item:hover{
+        transition: all 0.3s ease-out;
+        transform: translate3d(0,-0.2em,0);
+        border-bottom: 1px solid black;
+    }
+
+    .nav-btn{
+        width: 8rem;
+        height: 1.7335rem;
+        font-weight: bold;
+    }
+}
