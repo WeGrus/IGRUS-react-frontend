@@ -8,6 +8,8 @@ function Nav(props: any) {
         height:any
     }
 
+    const {isCurrent} = props;
+
     const [windowSize, setWindowSize] = React.useState<windowSizeType>({width:window.innerWidth, height:window.innerHeight})
     const [loggedIn, setLoggedIn]= React.useState<boolean>(true) // 추후에 로그인 여부에 따라 값을 받을 예정.
     const [showBtn, setShowBtn] = React.useState<boolean>(window.innerWidth<1024?true:false); // btn은 윈도우 크기가 작을 때, 드롭다운으로 구현.
@@ -24,8 +26,6 @@ function Nav(props: any) {
     const ViewDropdown = () => {
         console.log(btn);
         setBtn((cur)=>!cur);
-        
-        
     }
 
     const HandleResize = () => {
@@ -33,7 +33,7 @@ function Nav(props: any) {
         if(window.innerWidth>1024 && windowSize.width<1024){ // 작은 화면에서 커지면
             setShowBtn((cur) => false);
             if(navLink.current){
-                if(loggedIn == true){ //로그인 했다면
+                if(loggedIn === true){ //로그인 했다면
                     navLink.current.style.width = '15.15rem';
                 }
                 else{
@@ -44,6 +44,8 @@ function Nav(props: any) {
         }
         else if(window.innerWidth<1024 && windowSize.width>=1024){ // 큰 화면에서 작아지면
             setShowBtn((cur) => true);
+            console.log("hhahaha");
+            
         }
         setWindowSize({width:window.innerWidth,height:window.innerHeight});        
     }
@@ -62,7 +64,7 @@ function Nav(props: any) {
         <>
             <nav className="nav"  ref={nav}>
                 <div className="nav-item">
-                    <div className="nav-icon">아이콘의 위치</div>
+                    <img className="nav-icon" src={`${process.env.PUBLIC_URL}/logo.png`}></img>
                     <button className="nav-links-btn" ref={navListBtn} onClick={ViewDropdown}>V</button>
                     {(showBtn ?
                         <>

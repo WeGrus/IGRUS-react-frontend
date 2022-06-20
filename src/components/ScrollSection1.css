@@ -1,0 +1,58 @@
+.scroll-section{
+    position: relative;
+    padding: 20vh 0.5em 0;
+    border: 1px solid red;
+}
+
+.a{
+    position: fixed!important;
+    padding: 20vh 0.5em 0;
+    border: 1px solid red;
+}
+
+.flex-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    text-align: center;
+    font-size: 3vw;
+}
+
+
+
+
+@media (min-width: 1024px) {
+    .scroll-section{
+        padding: 14.15rem 0 0;
+        
+    }
+    .flex-section{
+        flex-direction: row;
+        margin: 0 auto;
+        width: 49.1rem;
+    }
+
+    .icon{
+        width: 23.15rem;
+        height: 9.95rem;
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        width: 25.95rem;
+        
+        text-align: right;
+        font-size: 0.8rem;
+        line-height: 1.21rem;
+    }
+
+    .description{
+      
+       
+    }
+}
