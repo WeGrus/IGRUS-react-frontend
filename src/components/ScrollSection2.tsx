@@ -18,6 +18,10 @@ function ScrollSection2(props: any){
     React.useEffect(()=>{
         setCurrentWidth(width);
     },[width])
+
+    React.useEffect(()=>{
+        setCurrentWidth(window.innerWidth);
+    },[])
     
 
 
