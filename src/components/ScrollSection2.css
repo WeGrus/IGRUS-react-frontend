@@ -1,0 +1,97 @@
+.nomal-section{
+ width: 100%;
+ padding-top: 50vh;
+ padding-bottom: 30vh;
+}
+
+.nomal-section-title{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 3vh;
+}
+
+.button-box{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.nomal-section-btn{
+    width: 20vw;
+    height: 7vh;
+    background-color: #E5E5E5;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.group-subtitle{
+    font-size: 0.4rem;
+    padding-bottom: 0.3em;
+}
+
+.btn-emoji{
+ position: absolute;
+    font-size: 1.5em;
+    bottom: -0.25em;
+    right: -0.25em;
+}
+
+.button-box-mini{
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-button-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.nomal-section-btn-mini{
+    background-color: #E5E5E5;
+    cursor: pointer;
+    width: 40vw;
+    height: 5vh;
+    border-radius: 1rem;
+}
+
+.group-section-description{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.image-box{
+    margin-bottom: 2vh;
+}
+
+.text-box-title{
+    margin-bottom: 2vh;
+}
+
+@media (min-width: 1024px) {
+    .nomal-section-title{
+        margin-bottom: 3.9rem;
+        font-size: 2rem;
+    }
+    .button-box{
+        width: 47.6rem;
+        margin: auto;
+    }
+    .nomal-section-btn{
+        width: 11rem;
+        height: 5.2rem;
+    }
+    .group-subtitle{
+        font-size: 0.7rem;
+    }
+    .group-title{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .btn-emoji{
+           font-size: 2.5rem;
+       }
+}

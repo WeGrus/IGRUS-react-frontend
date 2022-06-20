@@ -2,6 +2,7 @@ import * as React from "react";
 import './ScrollSection.css'
 import {useScroll} from "./../functions/useScroll"
 import calcValues from "./../functions/calcValues"
+import ScrollSection2 from "./ScrollSection2";
 
 function ScrollSection(){
     
@@ -96,6 +97,8 @@ function ScrollSection(){
 
     const SetLayout = ():void => {
         for (let i = 0; i < sectionInfos.length; i++) {
+            //console.log(i);
+            
 			if (sectionInfos[i].type === 'sticky') {
 				sectionInfos[i].scrollHeight = sectionInfos[i].height * window.innerHeight;
 			} else if (sectionInfos[i].type === 'normal')  {
@@ -128,13 +131,13 @@ function ScrollSection(){
      const playAniamtion = () => {
         const values =sectionInfo[currentSection].value;
         const objs =sectionInfo[currentSection].obj;
-        console.log(currentSection,prevScrollHeight);
+       // console.log(currentSection,prevScrollHeight);
         
         const currentYOffset = window.scrollY - prevScrollHeight;
         const sectionHeight = sectionInfo[currentSection].scrollHeight
         const scrollRatio = currentYOffset/sectionHeight;
 
-       console.log(currentYOffset,sectionHeight,scrollRatio);
+     //  console.log(currentYOffset,sectionHeight,scrollRatio);
 
        switch(currentSection){
            case 0:    
@@ -198,9 +201,6 @@ function ScrollSection(){
     },[currentSection])
     
 
-    
-
-    
     return(
     <>
             <section className={'scroll-section ' + (currentSection == 0 ?`current`:"")}  ref={scrollSection1}>
@@ -240,7 +240,10 @@ function ScrollSection(){
 
             </section>
             <div className='scroll-section' ref={scrollSection2}>
-                <h1 ref={contenSection2}>2</h1>
+                <div ref={contenSection2}>
+                <ScrollSection2 />
+                </div>
+            
             </div>
             <div className='scroll-section' ref={scrollSection3}>
                 <h1>3</h1>
