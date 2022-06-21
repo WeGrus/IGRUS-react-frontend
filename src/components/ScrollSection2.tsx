@@ -6,22 +6,27 @@ import './ScrollSection2.css'
 
 
 function ScrollSection2(props: any){
-    const [currentWidth, setCurrentWidth] = React.useState(window.innerWidth)
+    const [currentWidth, setCurrentWidth] = React.useState<number>(window.innerWidth);
+    const [currentBtn, setCurrentBtn] = React.useState<number>(0);
+    const [currentGroupDescription, setCurrentGroupDescription] = React.useState<string>(""); // 나중에 받아서 적용
     const {width} = useWidth();
 
-    const Test = () => {
-      console.log(window.innerWidth); 
-      //console.log("h1");
-      
+    const ChangeCurBtn = (group:number) => {
+        setCurrentBtn(group);
+    }
+
+    const Test = (num:number):any => {
+        console.log('ddd ' + num);
     }
 
     React.useEffect(()=>{
-        setCurrentWidth(width);
+        //console.log(width);
+        setCurrentWidth(window.innerWidth);
     },[width])
 
     React.useEffect(()=>{
-        setCurrentWidth(window.innerWidth);
-    },[])
+       
+    },[currentBtn])
     
 
 
@@ -40,22 +45,22 @@ function ScrollSection2(props: any){
             
             {(currentWidth >= 522 ?
                 <div className='button-box'>
-                    <button className='nomal-section-btn'>
+                    <button className={'nomal-section-btn ' + (currentBtn === 0?"cur-btn":"")} onClick={()=>ChangeCurBtn(0)}>
                         <p className='group-subtitle'><strong>게임</strong> 소모임</p>
                         <p className='group-title'>IGDC</p>
                         <span className='btn-emoji'>🎮</span>
                     </button>
-                    <button className='nomal-section-btn'>
+                    <button className={'nomal-section-btn ' + (currentBtn === 1?"cur-btn":"")} onClick={()=>ChangeCurBtn(1)}>
                         <p className='group-subtitle'><strong>웹/앱</strong> 제작 소모임</p>
                         <p className='group-title'>WEBGRUS</p>
                         <span className='btn-emoji'>📱</span>
                     </button>
-                    <button className='nomal-section-btn'>
+                    <button className={'nomal-section-btn ' + (currentBtn === 2?"cur-btn":"")} onClick={()=>ChangeCurBtn(2)}>
                         <p className='group-subtitle'><strong>해킹</strong> 소모임</p>
                         <p className='group-title'>IXPLOIT</p>
                         <span className='btn-emoji'>🔓</span>
                     </button>
-                    <button className='nomal-section-btn'>
+                    <button className={'nomal-section-btn ' + (currentBtn === 3?"cur-btn":"")} onClick={()=>ChangeCurBtn(3)}>
                         <p className='group-subtitle'><strong>알고리즘</strong> 문제 풀이</p>
                         <p className='group-title'>매주 1과제</p>
                         <span className='btn-emoji'>🎲</span>
@@ -64,12 +69,12 @@ function ScrollSection2(props: any){
                 :
                 <div className='button-box-mini'>
                     <div className='mini-button-row'>
-                    <button className='nomal-section-btn-mini'>IGDC</button>
-                    <button className='nomal-section-btn-mini'>WEBGRUS</button>
+                    <button className={'nomal-section-btn-mini ' + (currentBtn === 0?"cur-btn":"")} onClick={()=>ChangeCurBtn(0)}>IGDC</button>
+                    <button className={'nomal-section-btn-mini ' + (currentBtn === 1?"cur-btn":"")} onClick={()=>ChangeCurBtn(1)}>WEBGRUS</button>
                     </div>
                     <div className='mini-button-row'>
-                    <button className='nomal-section-btn-mini'>IXPLOIT</button>
-                    <button className='nomal-section-btn-mini'>매주 1과제</button>
+                    <button className={'nomal-section-btn-mini ' + (currentBtn === 2?"cur-btn":"")} onClick={()=>ChangeCurBtn(2)}>IXPLOIT</button>
+                    <button className={'nomal-section-btn-mini ' + (currentBtn === 3?"cur-btn":"")} onClick={()=>ChangeCurBtn(3)}>매주 1과제</button>
                     </div>
                 </div>
                 )}
@@ -81,7 +86,7 @@ function ScrollSection2(props: any){
                         이는 “나는 신이다”라고 선언한 웨스트에 의해 업데이트됐다. 이러한 야망들은 물론 실현 불가능했는데, 
                         이렇게 영향력 있고 독보적인 사람들은 자신들에게 주어진 틀을 평생 벗어나지 못하기 때문이었다. 
                         비틀스는 하나의 대중음악 현상으로 남았고, 쿤스는 영원히 많은 사람들이 이름을 들어봤을 법한 미술 작가일 테고, 
-                        카녜이는 카녜이로 남을 테며, 하느님은 하느님이었다.
+                        카녜이는 카녜이로 남을 테며, 하느님은 하느님이었다. {currentBtn}
                     </p>
                 </div>
                 <img className='image-box' src={`${process.env.PUBLIC_URL}/background-image.png`}  alt="" />

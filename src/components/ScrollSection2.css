@@ -17,6 +17,10 @@
     margin-bottom: 5vh;
 }
 
+.cur-btn{
+    background-color:#ffffff!important;
+}
+
 .nomal-section-btn{
     width: 20vw;
     height: 7vh;
@@ -57,9 +61,16 @@
     border-radius: 1rem;
 }
 
+.nomal-section-btn, .nomal-section-btn-mini{
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.25);
+}
+
 .group-section-description{
     display: flex;
     flex-direction: column-reverse;
+    padding: 5vh;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
 }
 
 .image-box{
@@ -68,7 +79,14 @@
 
 .text-box-title{
     margin-bottom: 2vh;
+    font-size: 5vw;
 }
+
+.text-box-description{
+    font-size: 3vw;
+}
+
+
 
 @media (min-width: 1024px) {
     .nomal-section-title{
@@ -78,11 +96,13 @@
     .button-box{
         width: 47.6rem;
         margin: auto;
+        padding-bottom: 1.55rem;
     }
     .nomal-section-btn{
         width: 11rem;
         height: 5.2rem;
     }
+
     .group-subtitle{
         font-size: 0.7rem;
     }
@@ -93,5 +113,30 @@
 
     .btn-emoji{
            font-size: 2.5rem;
-       }
+    }
+
+    .group-section-description{
+        width: 47.6rem;
+        min-height: 24rem;
+        margin: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    .text-box{
+        width: 17.1rem;
+        margin-right: 1.2rem;
+    }
+    .text-box-title{
+        font-size: 1.5rem;
+    }
+    .text-box-description{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    .image-box{
+        width: 17.1rem;
+        height: 17.1rem;
+    }
 }
