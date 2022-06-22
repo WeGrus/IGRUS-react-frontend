@@ -11,11 +11,12 @@ function ScrollSection3(props: any){
     React.useEffect(()=>{
         const k =  arr.map((item,i)=>(
             <div key = {i} ref={el => itemsRef.current[i]=el} className={(i%2 === 0)?'zoom-in-box  box-left':'zoom-in-box  box-right'} data-side = {(i%2 === 0)?'left':'right'}>
-                <p className={ (i%2 === 0)?'zoom-in-box-text text-left':'zoom-in-box-text text-right'}>와서 배우세염</p>
+                <p className={ (i%2 === 0)?'zoom-in-box-text text-left':'zoom-in-box-text text-right'}>오셔서 배우시면 좋습니다</p>
             </div>
         ));
         setAaa(k);
     },[])
+
     const ZoomInAnimation = new IntersectionObserver(entries => {
         entries.forEach((entry:any) => {
             // console.log(scrollY);
@@ -29,13 +30,14 @@ function ScrollSection3(props: any){
             if (entry.boundingClientRect.top > 0) {
                 if (side === left)
                     entry.target.classList.remove('zoom-in-animation-left');
-                else if (side === right)
+                else
                     entry.target.classList.remove('zoom-in-animation-right');
             }
+
             if (entry.intersectionRatio > 0) {
                 if(side === left)
                     entry.target.classList.add('zoom-in-animation-left');
-                else if(side=== right)
+                else
                     entry.target.classList.add('zoom-in-animation-right');
             }
         })
@@ -49,7 +51,7 @@ function ScrollSection3(props: any){
                 }
             }
             //console.log(ttt);
-            console.log(itemsRef.current);
+            //console.log(itemsRef.current);
             zoomInElement.forEach((el)=>{
                 ZoomInAnimation.observe(el);
             })

@@ -99,7 +99,7 @@ function ScrollSection(){
     ]
 
     const {scrollY} = useScroll();
-    const {width} = useWidth();
+    const {width,height} = useWidth();
 
     const SetLayout = ():void => {
         for (let i = 0; i < sectionInfos.length; i++) {
@@ -128,10 +128,6 @@ function ScrollSection(){
       }
 
     React.useEffect(() => {
-        //console.log(scrollSection3);
-        //console.log(scrollSection3.current.children[1].className);
-        //console.log(scrollSection3.current);
-        
         window.addEventListener('load', SetLayout);
         return (() => {
             window.removeEventListener('load', SetLayout);
@@ -151,14 +147,6 @@ function ScrollSection(){
 
        switch(currentSection){
            case 0:    
-            // image0_opacity_in:[0,1,{start:0.3,end:0.4}],
-            // flexSection2_opacity_in:[0,1,{start:0.4,end:0.55}],
-            // flexSection2_translateY_in:[20,0,{start:0.4,end:0.55}],
-
-            // flexSection2_opacity_out:[1,0,{start:0.6,end:0.75}],
-            // flexSection2_translateY_out:[0,-20,{start:0.6,end:0.75}],
-            // image0_opacity_out:[1.0,{start:0.8,end:0.9}],
-
                if(0<=scrollRatio){
                 const opacity:number = calcValues(values.flexSection1_opacity_out,currentYOffset,sectionHeight);
                 flexSection1.current.style.opacity = opacity;
@@ -209,7 +197,7 @@ function ScrollSection(){
 
     React.useEffect(()=>{
         SetLayout()
-    },[width])
+    },[width,height])
 
     React.useEffect(()=>{
        // console.log(currentSection);
@@ -274,7 +262,7 @@ function ScrollSection(){
                     <ScrollSection4 />
                 </div>
             </div>
-            <h2>{currentSection}</h2>
+            
     </>
     )
 }

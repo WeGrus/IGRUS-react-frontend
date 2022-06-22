@@ -1,3 +1,7 @@
+.section-3{
+    padding-bottom: 20vh;
+}
+
 .section-title{
     text-align: center;
     font-size: 1rem;
@@ -74,6 +78,9 @@
     }
 }
 @media (min-width: 1024px) {
+    .section-3{
+        padding-bottom: 19.2rem;
+    }
     .section-title{
         font-size: 2rem;
         margin-bottom: 6.1rem;
