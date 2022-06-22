@@ -3,7 +3,9 @@ import * as React from 'react'
 const calcValues = (values:any, currentYOffset:number, sectionHeight:number, ):number => {
     const scrollRatio = currentYOffset/sectionHeight;
     let rv:number = 0;
-
+    //flexSection1_opacity_out:[1,0,{start:0.1,end:0.25}],
+    console.log('work');
+    
     if(values.length === 3){
         const partStart:number = values[2].start * sectionHeight;
         const partEnd:number = values[2].end * sectionHeight;

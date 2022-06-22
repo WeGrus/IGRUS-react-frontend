@@ -40,7 +40,7 @@ function ScrollSection(){
     const sectionInfos:Array<Info> = [
         { 
             type:"sticky",
-            height:5,
+            height:6,
             scrollHeight:0,
             obj:{
                 container:scrollSection1,
@@ -118,7 +118,13 @@ function ScrollSection(){
           total+=sectionInfos[i].scrollHeight;
           if(total>window.scrollY){
             setCurrentSection((cur)=>i);
-            console.log("로드된 뒤의" + i);
+            //console.log("로드된 뒤의" + i);
+            if(i===0){
+                flexSection1.current.style.opacity = 1;
+            }
+            else{
+                flexSection1.current.style.opacity = 0;
+            }
             break;
           }
         }
@@ -145,19 +151,29 @@ function ScrollSection(){
 
      //  console.log(currentYOffset,sectionHeight,scrollRatio);
 
+        console.log(scrollRatio);
+        console.log(sectionHeight);
+        
+
        switch(currentSection){
            case 0:    
-               if(0<=scrollRatio){
+               if(0<scrollRatio&&scrollRatio<0.5){
+                console.log("이ㅉㅎㄱ!");
+                
                 const opacity:number = calcValues(values.flexSection1_opacity_out,currentYOffset,sectionHeight);
                 flexSection1.current.style.opacity = opacity;
                }
+               else if(0.5<scrollRatio){
+                console.log("저쪽!!!");
+                flexSection1.current.style.opacity = 0;
+               }
 
-               if(scrollRatio<0.575){
+               if(0<=scrollRatio&&scrollRatio<0.575){
                 image0.current.style.opacity = calcValues(values.image0_opacity_in,currentYOffset,sectionHeight);
                 flexSection2.current.style.opacity = calcValues(values.flexSection2_opacity_in,currentYOffset,sectionHeight);
                 flexSection2.current.style.transform = `translate3d(0,${calcValues(values.flexSection2_translateY_in,currentYOffset,sectionHeight)}%,0`;
                }
-               else{
+               else if(0.575<=scrollRatio){
                 image0.current.style.opacity = calcValues(values.image0_opacity_out,currentYOffset,sectionHeight);
                 flexSection2.current.style.opacity = calcValues(values.flexSection2_opacity_out,currentYOffset,sectionHeight);
                 flexSection2.current.style.transform = `translate3d(0,${calcValues(values.flexSection2_translateY_out,currentYOffset,sectionHeight)}%,0`;
@@ -191,7 +207,10 @@ function ScrollSection(){
             }
             //console.log(scrollY);
             
-            playAniamtion();
+            if(!enterNewScene){
+                playAniamtion();
+            }
+            
         }
     }, [scrollY])
 
@@ -241,9 +260,6 @@ function ScrollSection(){
                         </p>
                     </div>
                 </div>
-               
-                {/* <canvas className="image-blend-canvas" width="1920" height="1080"></canvas>
-        <div className='sticky-elem message b'></div> */}
 
             </section>
             <div className='scroll-section' ref={scrollSection2}>
