@@ -1,8 +1,11 @@
 import * as React from "react";
 import './ScrollSection.css'
 import {useScroll} from "./../functions/useScroll"
+import  {useWidth} from "./../functions/useWidth"
 import calcValues from "./../functions/calcValues"
 import ScrollSection2 from "./ScrollSection2";
+import ScrollSection3 from "./ScrollSection3";
+import ScrollSection4 from "./ScrollSection4";
 
 function ScrollSection(){
     
@@ -18,6 +21,7 @@ function ScrollSection(){
     const scrollSection4:any = React.useRef(null);
     const flexSection1:any =React.useRef(null);
     const contenSection2:any =React.useRef(null);
+    const contenSection3:any =React.useRef(null);
     const contenSection4:any =React.useRef(null);
     const flexSection2:any =React.useRef(null);
     const image0:any =React.useRef(null);
@@ -68,11 +72,12 @@ function ScrollSection(){
             }
         },
         { 
-            type:"sticky",
+            type:"normal",
             height:5,
             scrollHeight:0,
             obj:{
                 container:scrollSection3,
+                content:contenSection3
             },
             value:{
 
@@ -94,6 +99,7 @@ function ScrollSection(){
     ]
 
     const {scrollY} = useScroll();
+    const {width} = useWidth();
 
     const SetLayout = ():void => {
         for (let i = 0; i < sectionInfos.length; i++) {
@@ -102,7 +108,7 @@ function ScrollSection(){
 			if (sectionInfos[i].type === 'sticky') {
 				sectionInfos[i].scrollHeight = sectionInfos[i].height * window.innerHeight;
 			} else if (sectionInfos[i].type === 'normal')  {
-				sectionInfos[i].scrollHeight = sectionInfos[i].obj.content.current.offsetHeight+ window.innerHeight * 0.5;
+				sectionInfos[i].scrollHeight = sectionInfos[i].obj.content.current.offsetHeight;
 			}
             sectionInfos[i].obj.container.current.style.height = `${sectionInfos[i].scrollHeight}px`;
 		}
@@ -122,6 +128,10 @@ function ScrollSection(){
       }
 
     React.useEffect(() => {
+        //console.log(scrollSection3);
+        //console.log(scrollSection3.current.children[1].className);
+        //console.log(scrollSection3.current);
+        
         window.addEventListener('load', SetLayout);
         return (() => {
             window.removeEventListener('load', SetLayout);
@@ -178,7 +188,7 @@ function ScrollSection(){
                 prevHeight = prevHeight + sectionInfo[i].scrollHeight;
             }
             setPrevScrollHeight(prevHeight)
-            console.log(currentSection);
+            //console.log(currentSection);
     
             if (scrollY > prevHeight + sectionInfo[currentSection].scrollHeight) { // 스크롤을 내려 다른 섹션으로 가게되면      
                 current = current + 1;
@@ -191,14 +201,23 @@ function ScrollSection(){
                 setCurrentSection((cur)=>cur-1)
                 enterNewScene = true;
             }
-
+            //console.log(scrollY);
+            
             playAniamtion();
         }
     }, [scrollY])
 
     React.useEffect(()=>{
+        SetLayout()
+    },[width])
+
+    React.useEffect(()=>{
        // console.log(currentSection);
     },[currentSection])
+
+
+
+    //const testList = 
     
 
     return(
@@ -246,10 +265,14 @@ function ScrollSection(){
             
             </div>
             <div className='scroll-section' ref={scrollSection3}>
-                <h1>3</h1>
+                <div ref={contenSection3}>
+                <ScrollSection3 />
+                </div>
             </div>
             <div className='scroll-section' ref={scrollSection4}>
-                <h1 ref={contenSection4}>4</h1>
+                <div ref={contenSection4}>
+                    <ScrollSection4 />
+                </div>
             </div>
             <h2>{currentSection}</h2>
     </>

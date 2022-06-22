@@ -15,10 +15,6 @@ function ScrollSection2(props: any){
         setCurrentBtn(group);
     }
 
-    const Test = (num:number):any => {
-        console.log('ddd ' + num);
-    }
-
     React.useEffect(()=>{
         //console.log(width);
         setCurrentWidth(window.innerWidth);

@@ -1,7 +1,7 @@
 .nomal-section{
  width: 100%;
  padding-top: 50vh;
- padding-bottom: 30vh;
+ padding-bottom: 20vh;
 }
 
 .nomal-section-title{
@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5vh;
+    z-index: 10;
 }
 
 .cur-btn{
@@ -86,9 +87,16 @@
     font-size: 3vw;
 }
 
-
+@media(min-width: 522px){
+    .nomal-section-title{
+        font-size: 3.5vw;
+    }
+}
 
 @media (min-width: 1024px) {
+    .nomal-section{
+        padding-bottom: 7.25rem;
+       }
     .nomal-section-title{
         margin-bottom: 3.9rem;
         font-size: 2rem;
